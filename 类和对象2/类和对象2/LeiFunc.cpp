@@ -35,6 +35,10 @@ void Time::PrintTime()
 	cout << _hour << ":" << _minute << ":" << _second << endl;
 }
 
+Time::Time()
+{
+	cout << "自定义构造函数" << endl;
+}
 void Date2::SetDate(int year, int month, int day)
 {
 	_year = year;

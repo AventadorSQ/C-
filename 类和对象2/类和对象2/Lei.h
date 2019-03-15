@@ -29,6 +29,7 @@ class Time
 public:
 	void SetTime(int hour, int minute, int second);
 	void PrintTime();
+	Time();
 private:
 	int _hour;
 	int _minute;
