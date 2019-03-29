@@ -199,6 +199,9 @@ int main()
 		Date d(systime->tm_year + 1900, systime->tm_mon + 1, systime->tm_mday, systime->tm_hour, systime->tm_min, systime->tm_sec);
 		cout << "今天是:" << endl;
 		cout << d << endl;
+		char buf[1024];
+		cin >> buf;
+
 		cout << "距离2019年端午节还有：";
 		Date d1(2019, 6, 7);
 		cout << d1 - d << "天" << endl;
@@ -213,6 +216,7 @@ int main()
 		cout << d10 - d << "天" << endl;
 		Sleep(1000);
 		system("cls");
+
 	}
 	system("pause");
 	return 0;
