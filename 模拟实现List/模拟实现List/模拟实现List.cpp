@@ -97,7 +97,7 @@ namespace ListS
 		typedef ListNode<T> Node;
 	public:
 		typedef ListIterator<T, T&, T*> iterator;
-
+		typedef ListIterator<T, const T&, const T*> const_iterator;
 	public:
 		//**********************************************************************
 		//1.链表创建操作
@@ -311,6 +311,15 @@ namespace ListS
 			return iterator(HeadPtr);
 		}
 
+		const const_iterator cbegin()const
+		{
+			return const_iterator(HeadPtr->Next);
+		}
+
+		const const_iterator cend()const
+		{
+			return const_iterator(HeadPtr);
+		}
 	private:
 		void CreatHeadNode()
 		{
