@@ -34,20 +34,20 @@ namespace ListS
 
 
 	template<class T, class Ref, class Ptr>                //三个参数分别是什么意思各自的作用？？？
-	//template<class T, class Ref, class Ptr> 
-	//T 元素类型
-	//普通类型：
-	//Ref代表T&   Ptr代表T*
-	//const时
-	//Ref代表const T&，  Ptr代表const T*
-	//为了统一普通类型和const类型
-	
+														   //template<class T, class Ref, class Ptr> 
+														   //T 元素类型
+														   //普通类型：
+														   //Ref代表T&   Ptr代表T*
+														   //const时
+														   //Ref代表const T&，  Ptr代表const T*
+														   //为了统一普通类型和const类型
 
 
-	//1.实现这个迭代器类是因为它不是原生态指针，底层是双向链表，空间不一定连续。
-	//2.在这个类中实现++，--，==，!=，*，->。操作（指针操作，迭代器都可以支持）
-	//3.直接在list类中内嵌对应迭代器类型使用。为简单取别名
-	//typedef ListIterator<> iterator
+
+														   //1.实现这个迭代器类是因为它不是原生态指针，底层是双向链表，空间不一定连续。
+														   //2.在这个类中实现++，--，==，!=，*，->。操作（指针操作，迭代器都可以支持）
+														   //3.直接在list类中内嵌对应迭代器类型使用。为简单取别名
+														   //typedef ListIterator<> iterator
 
 	struct ListIterator
 	{
@@ -107,7 +107,7 @@ namespace ListS
 		{
 			return NodePtr == s.NodePtr;
 		}
-	//private:
+		//private:
 		PNode NodePtr;
 	};
 
@@ -273,7 +273,7 @@ namespace ListS
 		}
 
 		//3.设置有效链表的长度
-		void resize(size_t NewSize, const T& data =T())
+		void resize(size_t NewSize, const T& data = T())
 		{
 			size_t OldSize = size();
 			if (NewSize > OldSize)
@@ -305,7 +305,7 @@ namespace ListS
 		{
 			return HeadPtr->Next->data;
 		}
-		
+
 		//2.访问尾元素
 		T& back()
 		{
@@ -393,7 +393,7 @@ namespace ListS
 
 		//***********************************************************************
 		//5.迭代器操作
-		
+
 		//1.
 		iterator begin()
 		{
@@ -433,7 +433,7 @@ namespace ListS
 			HeadPtr->Prev = HeadPtr;
 		}
 	private:
-		Node* HeadPtr;
+		Node * HeadPtr;
 	};
 }
 
