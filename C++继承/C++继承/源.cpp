@@ -1,10 +1,10 @@
-//#include<iostream>
-//using namespace std;
+#include<iostream>
+using namespace std;
 //
 //class Base
 //{
 //public:
-//	void SetInfo(int pri = 1, int pro = 2, int pub = 3)
+//	void SetInfo(int pri, int pro, int pub)
 //	{
 //		_pri = pri;
 //		_pro = pro;
@@ -60,9 +60,9 @@
 //	return 0;
 //}
 
-#include<iostream>
-using namespace std;
-
+//#include<iostream>
+//using namespace std;
+//
 //class Base
 //{
 //public:
@@ -198,24 +198,28 @@ using namespace std;
 //public:
 //	int _chpub;
 //};
-
-//验证private限定的继承类在子类中是什么权限
-//变为私有
-//说明在private限定的继承类的直接子类中已经再次将父类中的public，protected修饰的变量改为私有，
-//但直接子类中还可以访问二者，但是在继承的孙子类中就不可在访问这两者变量
-//class SZ : public children
-//{
-//public:
-//	void Test()
-//	{
-//		_pub = 6;
-//		_pro = 6;
-//	}
-//};
+//
+////验证private限定的继承类在子类中是什么权限
+////变为私有
+////说明在private限定的继承类的直接子类中已经再次将父类中的public，protected修饰的变量改为私有，
+////但直接子类中还可以访问二者，但是在继承的孙子类中就不可在访问这两者变量
+////class SZ : public children
+////{
+////public:
+////	void Test()
+////	{
+////		_pub = 6;
+////		_pro = 6;
+////	}
+////};
 //int main()
 //{
-//	SZ S;
-//	S.Test();
+//	children C;
+//	C.SetBaseInfo(6, 6);
+//	C.PrintBaseInfo();
+//	//C._pub = 8;
+//	//SZ S;
+//	//S.Test();
 //	system("pause");
 //	return 0;
 //}
@@ -224,7 +228,7 @@ using namespace std;
 //1.可以将子类对象赋值给基类对象，但是不能用基类对象给子类对象赋值。
 //2.基类对象的指针（引用）可以指向（引用）子类对象，但反过来就不可以。
 //3.基类对象指针赋值给子类对象时，可以强转，但是这可能不安全。访问越界。
-
+//
 //前提;继承方式必须是public继承方式
 //子类对象可以看成是一个父类的对象(在所有用到父类对象的位置都可以使用子类对象代替)
 //验证：1.从类外对父类对象的使用方式
@@ -304,38 +308,38 @@ using namespace std;
 
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
-	//同名隐藏
-	// 如果子类与父类具有相同名称的成员（可以是成员变量成员函数）
-	//      成员变量同名：是否与父类同名成员类型相同无关
-	//      成员函数同名：是否与父类同名的成员函数原型一致无关
-	//隐藏：
-	//  如果使用子类对象访问同名成员，优先访问子类自己成员，父类同名成员不能直接访问（子类同名成员将父类同名成员隐藏）
-	//一定要通过子类对象访问父类同名成员：加父类的作用域（类名）
-	//所以继承中子类和父类最好不要同名。
+	/*同名隐藏
+	 如果子类与父类具有相同名称的成员（可以是成员变量成员函数）
+	      成员变量同名：是否与父类同名成员类型相同无关
+	      成员函数同名：是否与父类同名的成员函数原型一致无关
+	隐藏：
+	  如果使用子类对象访问同名成员，优先访问子类自己成员，父类同名成员不能直接访问（子类同名成员将父类同名成员隐藏）
+	一定要通过子类对象访问父类同名成员：加父类的作用域（类名）
+	所以继承中子类和父类最好不要同名。*/
 
-	class Base
-	{
-	public:
-		Base(int data)
-			: _data(data)
-		{}
-	private:
-		int _data;
-    };
+	//class Base
+	//{
+	//public:
+	//	Base(int data)
+	//		: _data(data)
+	//	{}
+	//private:
+	//	int _data;
+ //   };
 
-	class children : public Base
-	{
-	public:
-		children(int b = 10)
-			:Base(66)
-			,_b(b)
-		{}
-	private:
-		int _b;
-	};
+	//class children : public Base
+	//{
+	//public:
+	//	children(int b = 10)
+	//		:Base(66)
+	//		,_b(b)
+	//	{}
+	//private:
+	//	int _b;
+	//};
 
-	int main()
-	{
-		children c;
-		return 0;
-	}
+	//int main()
+	//{
+	//	children c;
+	//	return 0;
+	//}
