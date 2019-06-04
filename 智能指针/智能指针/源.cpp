@@ -131,7 +131,11 @@ int main()
 #endif
 
 //shared_ptr
-//RAII + operator*()/operator->() + 引用计数
+//RAII + operator*()/operator->() + 引用计数--->资源释放方式
+// 通过仿函数方式定制删除器
+// 缺陷： 循环引用   ---双向链表例子。
+// 解决办法：weak_ptr: 不能单独管理资源，必须与shared_ptr配合使用
+//           RAII + operator*()/operator->() + 引用计数
 
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
