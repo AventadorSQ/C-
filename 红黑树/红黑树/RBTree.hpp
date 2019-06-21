@@ -153,7 +153,59 @@ public:
 		_InOrderPrint(GetRoot());
 		cout << endl;
 	}
+
+	bool IsRBTree()
+	{
+		RBTreeNode* pRoot = GetRoot();
+		if (nullptr == pRoot)
+		{
+			return true;
+		}
+		if (RED == pRoot->_Color)
+		{
+			cout << "违反性质2：根节点为红色" << endl;
+			return false;
+		}
+		size_t pathblack = 0;
+		size_t blackCount = 0;
+		RBTreeNode* ptr = pRoot;
+		while (ptr)
+		{
+			if (ptr->_Color == BLACK)
+			{
+				blackCount++;
+			}
+			ptr = ptr->_Left;
+		}
+		return _IsRBTree(pRoot, blackCount, pathblack);
+	}
 private:
+	bool _IsRBTree(RBTreeNode* pRoot, size_t blackCount, size_t pathblack)
+	{
+		if (nullptr == pRoot)
+		{
+			return true;
+		}
+		if (pRoot->_Color == BLACK)
+		{
+			pathblack++;
+		}
+		if (pRoot->_Color == RED && pRoot->_Parent &&pRoot->_Parent->_Color == RED)
+		{
+			cout << "违反性质3：红色结点连续" << endl;
+			return false;
+		}
+		if (pRoot->_Left == nullptr && pRoot->_Right == nullptr)
+		{
+			if (pathblack != blackCount)
+			{
+				cout << "违反性质4：黑色结点数量不相同" << endl;
+				return false;
+			}
+		}
+
+		return _IsRBTree(pRoot->_Left, blackCount, pathblack) && _IsRBTree(pRoot->_Right, blackCount, pathblack);
+	}
 	RBTreeNode*& GetRoot()
 	{
 		return _Head->_Parent;

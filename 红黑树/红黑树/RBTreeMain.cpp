@@ -10,6 +10,15 @@ void TestRBTree()
 	}
 
 	t.InOrderPrint();
+
+	if (t.IsRBTree() == true)
+	{
+		cout << "¸ÃÊ÷ÊÇºìºÚÊ÷" << endl;
+	}
+	else
+	{
+		cout << "¸ÃÊ÷²»ÊÇºìºÚÊ÷" << endl;
+	}
 }
 
 int main()
