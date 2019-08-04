@@ -13,9 +13,10 @@
 #define CLIENT_BACKUP_DIR "backup"
 #define CLIENT_BACKUP_INFO_FILE "backuplist.txt"
 #define RANGE_MAX_SIZE (20 << 20)
-#define SERVER_IP "49.234.202.94"
-//#define SERVER_IP "192.168.166.144"
-#define SERVER_PORT (10000)
+//#define SERVER_IP "192.168.166.145"
+//#define SERVER_PORT (10000)
+#define SERVER_IP "47.98.61.33"
+#define SERVER_PORT (16300)
 #define BACKUP_DTRECTORY_PATH "/list/"
 #define BACKUP_FORMAT "text/plain"
 
