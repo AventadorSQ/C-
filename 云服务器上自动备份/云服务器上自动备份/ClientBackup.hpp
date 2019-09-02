@@ -38,7 +38,7 @@ public:
 public:
 	//初始化直接将传进来的文件块大小，起始地址设置好
 	ThrBackUp(const std::string& file, int64_t start, int64_t len)
-		:_res(true)
+		: _res(true)
 		, _file(file)
 		, _range_len(len)
 		, _range_start(start)
